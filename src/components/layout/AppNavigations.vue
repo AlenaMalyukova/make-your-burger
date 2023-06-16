@@ -34,7 +34,5 @@
       border-bottom: 1px solid #5243C2;
     }
   }
-  
-  
 }
 </style>

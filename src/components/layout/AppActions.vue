@@ -1,9 +1,9 @@
 <template>
-<div class="wrapper">
-  <button class="phone callback" @click="toggleModal">
+<div class="actions">
+  <button class="actions-phone callback" @click="toggleModal">
     <img src="@/assets/icons/phone.svg" alt="phone">
     Call Me Back</button>
-  <button class="phone">8 800 437-87-22</button>
+  <button class="actions-phone">8 800 437-87-22</button>
 </div>
 <call-back v-if="isModalVisible" @close="toggleModal"/>
 </template>
@@ -20,15 +20,17 @@ const toggleModal = () => {
 </script>
 
 <style lang="scss" scoped>
-.phone {
-  background-color: transparent;
-  color: #1F2939;;
-  padding: 10px 14px;
-  border: none;
-  border-radius: 99px;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 1.2;
+.actions {
+  &-phone {
+    background-color: transparent;
+    color: #1F2939;;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 99px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
 }
 
 .callback {
