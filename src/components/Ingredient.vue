@@ -1,11 +1,11 @@
 <template>
   <div class="ingredient">
-    <img :src="require(`../assets/images/${item.img}.png`)" :alt="`${item.img}`">
+    <img :src="require(`../assets/images/${item.value}.png`)" :alt="`${item.value}`">
     <p>{{ item.name }}</p>
     <div class="counter">
-      <button @click="turnDown">-</button>
+      <button @click="turnDown(item)">-</button>
       <p>{{ this.count }}</p>
-      <button @click="turnUp">+</button>
+      <button @click="turnUp(item)">+</button>
     </div>
   </div>
 </template>
@@ -14,22 +14,22 @@
 export default {
   data: () => ({
     count: 0,
-    // burger: []
   }),
   props: {
     item: Object,
   },
   methods: {
-    turnDown() {
+    turnDown(item) {
       if(this.count === 0) {
         return
       } else {
-        this.count--       
-        return
+        this.count--
+        return this.$emit('turn-down', item)
       }
     },
-    turnUp() {
+    turnUp(item) {
       this.count++
+      return this.$emit('turn-up', item)
     }
   }
 }
