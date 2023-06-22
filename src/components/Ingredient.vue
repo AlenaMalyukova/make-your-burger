@@ -29,6 +29,9 @@ export default {
     },
     turnUp(item) {
       this.count++
+      if(this.count>=10) {
+        this.$emit('open-modal')
+      }
       return this.$emit('turn-up', item)
     }
   }
@@ -56,6 +59,7 @@ export default {
     width: 28px;
     height: 28px;
     text-align: center;
+    cursor: pointer;
   }
   p{
     padding: 0 10px;

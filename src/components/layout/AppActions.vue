@@ -5,7 +5,7 @@
     Call Me Back</button>
   <button class="actions-phone">8 800 437-87-22</button>
 </div>
-<call-back v-if="isModalVisible" @close="toggleModal"/>
+<CallBack v-if="isModalVisible" @close="toggleModal"/>
 </template>
 
 <script setup>

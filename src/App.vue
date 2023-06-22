@@ -33,6 +33,6 @@ body {
 }
 
 .container {
-  padding: 0 180px;
+  padding: 0 100px;
 }
 </style>

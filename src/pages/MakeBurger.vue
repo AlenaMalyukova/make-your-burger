@@ -10,29 +10,34 @@
     :key="item.name" 
     :item="item"
     @turn-down="turnDownIngredient"
-    @turn-up="turnUpIngredient"/>
+    @turn-up="turnUpIngredient"
+    @open-modal="toggleModal"/>
 </div>
+<Confirm v-if="isModalVisible" @close="toggleModal" />
 </template>
 
 <script>
 import Ingredient from '../components/Ingredient.vue'
 import Burger from '@/components/Burger.vue';
 import Summary from '@/components/Summary.vue';
+import Confirm from '@/components/modal/Confirm.vue';
 
 export default {
   name: 'MakeBurger',
   components: {
     Ingredient,
     Burger,
-    Summary
+    Summary,
+    Confirm
   },
   data: () => ({
+    isModalVisible: false,
     ingredients: [
       {
         name: 'Cutlet',
         value: 'cutlet',
         time: 5,
-        weight: 0.125,
+        weight: 0.113,
         kcal: 280,
         price: 3
       },
@@ -40,7 +45,7 @@ export default {
         name: 'Mayo',
         value: 'mayo',
         time: 0,
-        weight: 0.30,
+        weight: 0.030,
         kcal: 125,
         price: 0.80
       },
@@ -48,46 +53,46 @@ export default {
         name: 'Onion',
         value: 'onion',
         time: 1,
-        weight: 0.10,
+        weight: 0.010,
         kcal: 24,
         price: 0.50
       },
       {
         name: 'Tomato',
         value: 'tomato',
-        time: 2,
-        weight: 0.50,
+        time: 1,
+        weight: 0.050,
         kcal: 40,
         price: 1
       },
       {
         name: 'Cucumber',
         value: 'cucumber',
-        time: 3,
-        weight: 0.20,
+        time: 1,
+        weight: 0.020,
         kcal: 15,
         price: 0.70
       },
       {
         name: 'Cheese',
         value: 'cheese',
-        time: 5,
-        weight: 0.20,
+        time: 1,
+        weight: 0.020,
         kcal: 170,
         price: 1.5
       },
       {
         name: 'Salad',
         value: 'salad',
-        time: 5,
-        weight: 0.10,
+        time: 1,
+        weight: 0.005,
         kcal: 15,
         price: 0.50
       },
       {
         name: 'Bun',
         value: 'bun',
-        time: 5,
+        time: 1,
         weight: 0.125,
         kcal: 180,
         price: 1.7
@@ -101,8 +106,14 @@ export default {
       this.addedIngredients.splice(itemIndex, 1)
     },
     turnUpIngredient(item) {
+      if(this.addedIngredients.length >= 20) {
+        this.isModalVisible = true
+      }
       this.addedIngredients.push(item)
-    }
+    },
+    toggleModal() {
+      this.isModalVisible = !this.isModalVisible
+    },
   },
 }
 </script>

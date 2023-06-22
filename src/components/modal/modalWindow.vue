@@ -31,9 +31,10 @@ const close = () => emit('close')
 
 <style lang="scss" scoped>
 .modal-shadow {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
+  z-index: 10;
   min-height: 100%;
   width: 100%;
   background: rgba(0, 0, 0, 0.39);
