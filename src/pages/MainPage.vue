@@ -1,17 +1,17 @@
 <template>
 <div class="main">
-    <div class="main__title">Make<br>Your<br>Burger</div>
-    <router-link class="main-btn" to="/make-burger">
-      <span>make<br>burger</span>
-    </router-link>
-    <div class="main-images">
-      <div class="main-images__background">
-        <img src="../assets/main-burger-background.png" alt="backround">
-      </div>
-      <div class="main-images__burger">
-        <img src="../assets/main-burger.png" alt="burger">
-      </div>
+  <div class="main__title">Make<br>Your<br>Burger</div>
+  <router-link class="main-btn" to="/make-burger">
+    <span>make<br>burger</span>
+  </router-link>
+  <div class="main-images">
+    <div class="main-images__background">
+      <img src="../assets/main-burger-background.png" alt="backround">
     </div>
+    <div class="main-images__burger">
+      <img src="../assets/main-burger.png" alt="burger">
+    </div>
+  </div>
 </div>
 </template>
 
